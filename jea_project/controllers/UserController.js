@@ -32,7 +32,7 @@ exports.authenticate_user = function(req, res){
             });
         });
       }
-  });
+  );
 }
 
 exports.create_user = function(req, res){
@@ -218,10 +218,13 @@ exports.get_all_kweet = function(req, res){
 }
 
 exports.get_last_kweet = function(req, res){
-  Kweet.find({}).sort({created_date: -1}).exec(function(err, kweets){
-    if(err)
-      res.send(err);
-    res.json(kweets);
+  User.findById({_id: req.params._id})
+    .populate('kweets')
+    .sort({created_date: -1})
+    .exec(function(err, user){
+      if(err)
+        res.send(err);
+      res.send(user.kweets);
   })
 }
 

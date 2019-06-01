@@ -57,7 +57,7 @@ class Profile extends Component {
                 <Row>
                     <Col>
                         <ProfileInfo user={this.state.user} followersLength={this.state.followersLength} followingsLength={this.state.followingsLength} kweetsLength={this.state.kweetsLength} />
-                        <ProfileUpdate />
+                        <ProfileUpdate user={this.state.user_id} />
                     </Col>
                     <Col>
                       <KweetList name="kweets" user={this.state.user_id} ref={this.kweetsList}/>

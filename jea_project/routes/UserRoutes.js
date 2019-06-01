@@ -11,11 +11,11 @@ module.exports = function(app) {
   app.route('/users')
     .get(UserController.get_all_user)
     .post(UserController.create_user)
-    .delete(UserController.remove_user)
-    .put(UserController.update_user);
+    .delete(UserController.remove_user);
 
   app.route('/users/:_id')
-    .get(UserController.get_user_by_id);
+    .get(UserController.get_user_by_id)
+    .put(UserController.update_user);
 
   app.route('/users/single/:username')
     .get(UserController.get_user_by_username);
